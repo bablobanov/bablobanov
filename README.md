@@ -6,9 +6,14 @@ I operate businesses and run AI agents inside them. This account holds the part 
 
 Native Telegram To-Do lists for AI agents - create, read, append and toggle real interactive checklist messages in chats and forum topics through a Telethon user session.
 
-**Why it exists.** Telegram's Bot API can post checklists only on behalf of a connected business account; a regular bot cannot put one into a group or a forum topic at all. The only route is MTProto under a user session, which is what this tool does.
+**Why it exists.** Telegram's Bot API sends checklists only on behalf of a connected business account, and its checklist methods take no forum-topic parameter, so a regular bot has no documented way to post one into a team group or a forum topic. MTProto under a user session can, which is what this tool does.
 
 **What it is.** A single-file Python CLI - stdlib plus Telethon, strict JSON in and out, no daemon, no background listener, no message scraping. It ships as a skill for the Hermes agent by Nous Research, but any agent harness or plain shell can call it.
+
+- Repository: https://github.com/bablobanov/hermes-telegram-checklist
+- Latest release: https://github.com/bablobanov/hermes-telegram-checklist/releases/latest
+- Install: `npx skills add bablobanov/hermes-telegram-checklist`
+- Listed in [awesome-hermes-agent](https://github.com/0xNyk/awesome-hermes-agent)
 
 ## How the work is checked
 
