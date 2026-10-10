@@ -46,9 +46,9 @@ Voice input for the Hermes agent: a private Yandex Alice skill passes the recogn
 
 **What it is.** A plugin inside the Hermes gateway, Python standard library only. It listens on 127.0.0.1 behind an HTTPS proxy you run, takes requests on a secret URL, and passes the text to one Telegram direct-message session fixed in the configuration; a request cannot pick another session, role, model or tools. Alice's reply means the task was scheduled, not that it was done, and Alice does not read the result aloud. Built for one operator and a private skill; Alice's replies are in Russian.
 
-<a href="https://github.com/bablobanov/hermes-alice-voice"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-alice-voice on GitHub"></a>
+<a href="https://github.com/bablobanov/hermes-alice-voice"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-alice-voice on GitHub"></a> <a href="https://hermes-agent.nousresearch.com/docs/plugins/alice-voice"><img src="https://img.shields.io/badge/Listed%20in-Hermes%20Plugin%20Catalog-0B1A4A?style=for-the-badge" alt="Listed in the Hermes Plugin Catalog"></a>
 
-- Install: copy the three files of `plugins/alice-voice/` into the Hermes plugin folder, set a webhook secret in the Hermes `.env` and the plugin settings in `config.yaml`, point a private Alice skill at your HTTPS proxy and restart the gateway. The repository README has each step.
+- Install: `hermes plugins install alice-voice`, or copy the three files of `plugins/alice-voice/` into the Hermes plugin folder; then set a webhook secret in the Hermes `.env` and the plugin settings in `config.yaml`, point a private Alice skill at your HTTPS proxy and restart the gateway. The repository README has each step.
 
 ## compact-ready
 
