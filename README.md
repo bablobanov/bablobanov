@@ -1,10 +1,12 @@
-# Ilya Balobanov
+<a href="https://x.com/bablobanov"><img src="assets/header.png" width="100%" alt="Ilya Balobanov. Digital systems architect. AI agents in real business."></a>
 
-I operate businesses and run AI agents inside them. This account holds the part of that work that can be verified by anyone: the tooling, the tests, and the failure reports.
+<a href="https://bablobanov.com"><img src="https://img.shields.io/badge/bablobanov.com-0B1A4A?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website bablobanov.com"></a> <a href="https://x.com/bablobanov"><img src="https://img.shields.io/badge/X-@bablobanov-000000?style=for-the-badge&logo=x&logoColor=white" alt="X @bablobanov"></a> <a href="https://bsky.app/profile/bablobanov.com"><img src="https://img.shields.io/badge/Bluesky-@bablobanov.com-1185FE?style=for-the-badge&logo=bluesky&logoColor=white" alt="Bluesky @bablobanov.com"></a> <a href="https://www.threads.com/@bablobanov_com"><img src="https://img.shields.io/badge/Threads-@bablobanov__com-000000?style=for-the-badge&logo=threads&logoColor=white" alt="Threads @bablobanov_com"></a> <a href="https://huggingface.co/bablobanov"><img src="https://img.shields.io/badge/Hugging%20Face-bablobanov-0B1A4A?style=for-the-badge&logo=huggingface&logoColor=white" alt="Hugging Face bablobanov"></a>
+
+I run AI agents in real business. This account holds the part of that work that can be verified by anyone: the tooling, the tests, and the failure reports.
 
 ## hermes-telegram-checklist
 
-<img src="assets/hermes-telegram-checklist.jpg" width="600" alt="Illustration: the Hermes agent robot checks off an item in a native Telegram To-Do list">
+<a href="https://github.com/bablobanov/hermes-telegram-checklist"><img src="assets/hermes-telegram-checklist.jpg" width="100%" alt="Illustration: the Hermes agent robot checks off an item in a native Telegram To-Do list"></a>
 
 Native Telegram To-Do lists for AI agents - create, read, append and toggle real interactive checklist messages in chats and forum topics through a Telethon user session.
 
@@ -12,14 +14,13 @@ Native Telegram To-Do lists for AI agents - create, read, append and toggle real
 
 **What it is.** A single-file Python CLI - stdlib plus Telethon, strict JSON in and out, no daemon, no background listener, no message scraping. It ships as a skill for the Hermes agent by Nous Research, but any agent harness or plain shell can call it.
 
-- Repository: https://github.com/bablobanov/hermes-telegram-checklist
-- Latest release: https://github.com/bablobanov/hermes-telegram-checklist/releases/latest
-- Install: `npx skills add bablobanov/hermes-telegram-checklist`
-- Listed in [awesome-hermes-agent](https://github.com/0xNyk/awesome-hermes-agent)
+<a href="https://github.com/bablobanov/hermes-telegram-checklist"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-telegram-checklist on GitHub"></a> <a href="https://github.com/bablobanov/hermes-telegram-checklist/releases/latest"><img src="https://img.shields.io/badge/Latest%20release-0B1A4A?style=for-the-badge&logo=github&logoColor=white" alt="Latest release"></a> <a href="https://github.com/0xNyk/awesome-hermes-agent"><img src="https://img.shields.io/badge/Listed%20in-awesome--hermes--agent-0B1A4A?style=for-the-badge" alt="Listed in awesome-hermes-agent"></a>
+
+Install: `npx skills add bablobanov/hermes-telegram-checklist`
 
 ## hermes-agent-telegram-dashboard
 
-<img src="assets/hermes-agent-telegram-dashboard.jpg" width="600" alt="Illustration: the Hermes agent robot next to a pinned Telegram status message with gateway health, backup, config drift and account limits">
+<a href="https://github.com/bablobanov/hermes-agent-telegram-dashboard"><img src="assets/hermes-agent-telegram-dashboard.jpg" width="100%" alt="Illustration: the Hermes agent robot next to a pinned Telegram status message with gateway health, backup, config drift and account limits"></a>
 
 A read-only status dashboard for the Hermes agent, kept in one pinned Telegram message and edited in place on a schedule: gateway health, message freshness, the last database backup, config drift, and the Claude, Codex, Grok and Kimi account limits.
 
@@ -27,9 +28,8 @@ A read-only status dashboard for the Hermes agent, kept in one pinned Telegram m
 
 **What it is.** A plugin that runs inside the Hermes gateway and edits the message through the gateway's own Telegram adapter, so the bot token never leaves the engine. No LLM calls, nothing installed into the engine's environment; it needs Hermes 0.21.1 or later. The screen text is in English.
 
-- Repository: https://github.com/bablobanov/hermes-agent-telegram-dashboard
-- Latest release: https://github.com/bablobanov/hermes-agent-telegram-dashboard/releases/latest
-- Listed in the [Hermes Plugin Catalog](https://hermes-agent.nousresearch.com/docs/plugins/telegram_dashboard_probe)
+<a href="https://github.com/bablobanov/hermes-agent-telegram-dashboard"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-agent-telegram-dashboard on GitHub"></a> <a href="https://github.com/bablobanov/hermes-agent-telegram-dashboard/releases/latest"><img src="https://img.shields.io/badge/Latest%20release-0B1A4A?style=for-the-badge&logo=github&logoColor=white" alt="Latest release"></a> <a href="https://hermes-agent.nousresearch.com/docs/plugins/telegram_dashboard_probe"><img src="https://img.shields.io/badge/Listed%20in-Hermes%20Plugin%20Catalog-0B1A4A?style=for-the-badge" alt="Listed in the Hermes Plugin Catalog"></a>
+
 - Install: `hermes plugins install telegram_dashboard_probe`, or from a clone with the command below; then enable the plugin in `config.yaml`, restart the gateway and pin the message it sends:
 
   ```bash
@@ -38,7 +38,7 @@ A read-only status dashboard for the Hermes agent, kept in one pinned Telegram m
 
 ## hermes-alice-voice
 
-<img src="assets/hermes-alice-voice.jpg" width="600" alt="Illustration: a holographic voice assistant and the Hermes agent robot joined by a sound wave">
+<a href="https://github.com/bablobanov/hermes-alice-voice"><img src="assets/hermes-alice-voice.jpg" width="100%" alt="Illustration: a holographic voice assistant and the Hermes agent robot joined by a sound wave"></a>
 
 Voice input for the Hermes agent: a private Yandex Alice skill passes the recognized text of a task to one existing Hermes Telegram chat, and the result arrives in Telegram.
 
@@ -46,12 +46,13 @@ Voice input for the Hermes agent: a private Yandex Alice skill passes the recogn
 
 **What it is.** A plugin inside the Hermes gateway, Python standard library only. It listens on 127.0.0.1 behind an HTTPS proxy you run, takes requests on a secret URL, and passes the text to one Telegram direct-message session fixed in the configuration; a request cannot pick another session, role, model or tools. Alice's reply means the task was scheduled, not that it was done, and Alice does not read the result aloud. Built for one operator and a private skill; Alice's replies are in Russian.
 
-- Repository: https://github.com/bablobanov/hermes-alice-voice
+<a href="https://github.com/bablobanov/hermes-alice-voice"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-alice-voice on GitHub"></a>
+
 - Install: copy the three files of `plugins/alice-voice/` into the Hermes plugin folder, set a webhook secret in the Hermes `.env` and the plugin settings in `config.yaml`, point a private Alice skill at your HTTPS proxy and restart the gateway. The repository README has each step.
 
 ## compact-ready
 
-<img src="assets/compact-ready.jpg" width="600" alt="Compact Ready: finish the stage, save the handoff, compact with focus">
+<a href="https://github.com/bablobanov/compact-ready"><img src="assets/compact-ready.jpg" width="100%" alt="Compact Ready: finish the stage, save the handoff, compact with focus"></a>
 
 A Claude Code command for the moment before `/compact`: it finishes the current stage of the plan or stops where it needs your decision, writes a handoff file next to the task, and prints one ready-to-paste `/compact` line with a focus. It never runs `/compact` itself.
 
@@ -59,7 +60,8 @@ A Claude Code command for the moment before `/compact`: it finishes the current 
 
 **What it is.** A plugin with one skill: a single instruction file, no hooks, no scripts, no network code of its own. Claude cannot start it by itself (`disable-model-invocation: true`), only you can. The handoff file has five sections: done, decisions and why, changed files, next step, risks. Claude Code only; Cowork and the desktop app are not tested.
 
-- Repository: https://github.com/bablobanov/compact-ready
+<a href="https://github.com/bablobanov/compact-ready"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="compact-ready on GitHub"></a>
+
 - Install, in Claude Code:
 
   ```
