@@ -60,14 +60,16 @@ A Claude Code command for the moment before `/compact`: it finishes the current 
 
 **What it is.** A plugin with one skill: a single instruction file, no hooks, no scripts, no network code of its own. Claude cannot start it by itself (`disable-model-invocation: true`), only you can. The handoff file has five sections: done, decisions and why, changed files, next step, risks. Claude Code only; Cowork and the desktop app are not tested.
 
-<a href="https://github.com/bablobanov/compact-ready"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="compact-ready on GitHub"></a>
+<a href="https://github.com/bablobanov/compact-ready"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="compact-ready on GitHub"></a> <a href="https://claude.ai/customize/plugins/id/1eb4a2b3-703e-435e-8079-1134b644582d%40anthropic-plugin-directory"><img src="https://img.shields.io/badge/Listed%20in-Claude%20Plugin%20Directory-0B1A4A?style=for-the-badge" alt="Listed in the Claude plugin directory"></a>
 
-- Install, in Claude Code:
+- Install: click **Add** on its [listing in the Claude plugin directory](https://claude.ai/customize/plugins/id/1eb4a2b3-703e-435e-8079-1134b644582d%40anthropic-plugin-directory); Claude Code loads it in sessions signed in with the same claude.ai account. Or add this repository as a marketplace, in Claude Code:
 
   ```
   /plugin marketplace add bablobanov/compact-ready
   /plugin install compact-ready@bablobanov
   ```
+
+  Installed this way, it does not update on its own; to get a new version, run `/plugin marketplace update bablobanov`.
 
 ## How the work is checked
 
