@@ -4,9 +4,9 @@
 
 I run AI agents in real business. This account holds the part of that work that can be verified by anyone: the tooling, the tests, and the failure reports.
 
-## hermes-telegram-checklist
+## hermes-agent-telegram-checklist
 
-<a href="https://github.com/bablobanov/hermes-telegram-checklist"><img src="assets/hermes-telegram-checklist.jpg" width="100%" alt="Illustration: the Hermes agent robot checks off an item in a native Telegram To-Do list"></a>
+<a href="https://github.com/bablobanov/hermes-agent-telegram-checklist"><img src="assets/hermes-telegram-checklist.jpg" width="100%" alt="Illustration: the Hermes agent robot checks off an item in a native Telegram To-Do list"></a>
 
 Native Telegram To-Do lists for AI agents - create, read, append and toggle real interactive checklist messages in chats and forum topics through a Telethon user session.
 
@@ -14,9 +14,9 @@ Native Telegram To-Do lists for AI agents - create, read, append and toggle real
 
 **What it is.** A single-file Python CLI - stdlib plus Telethon, strict JSON in and out, no daemon, no background listener, no message scraping. It ships as a skill for the Hermes agent by Nous Research, but any agent harness or plain shell can call it.
 
-<a href="https://github.com/bablobanov/hermes-telegram-checklist"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-telegram-checklist on GitHub"></a> <a href="https://github.com/bablobanov/hermes-telegram-checklist/releases/latest"><img src="https://img.shields.io/badge/Latest%20release-0B1A4A?style=for-the-badge&logo=github&logoColor=white" alt="Latest release"></a> <a href="https://github.com/0xNyk/awesome-hermes-agent"><img src="https://img.shields.io/badge/Listed%20in-awesome--hermes--agent-0B1A4A?style=for-the-badge" alt="Listed in awesome-hermes-agent"></a>
+<a href="https://github.com/bablobanov/hermes-agent-telegram-checklist"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-agent-telegram-checklist on GitHub"></a> <a href="https://github.com/bablobanov/hermes-agent-telegram-checklist/releases/latest"><img src="https://img.shields.io/badge/Latest%20release-0B1A4A?style=for-the-badge&logo=github&logoColor=white" alt="Latest release"></a> <a href="https://github.com/0xNyk/awesome-hermes-agent"><img src="https://img.shields.io/badge/Listed%20in-awesome--hermes--agent-0B1A4A?style=for-the-badge" alt="Listed in awesome-hermes-agent"></a>
 
-Install: `npx skills add bablobanov/hermes-telegram-checklist`
+Install: `npx skills add bablobanov/hermes-agent-telegram-checklist`
 
 ## hermes-agent-telegram-dashboard
 
@@ -36,9 +36,9 @@ A read-only status dashboard for the Hermes agent, kept in one pinned Telegram m
   git clone https://github.com/bablobanov/hermes-agent-telegram-dashboard.git && cd hermes-agent-telegram-dashboard && install -d "${HERMES_HOME:-$HOME/.hermes}/plugins" && cp -r plugin/telegram_dashboard_probe "${HERMES_HOME:-$HOME/.hermes}/plugins/"
   ```
 
-## hermes-alice-voice
+## hermes-agent-alice-voice
 
-<a href="https://github.com/bablobanov/hermes-alice-voice"><img src="assets/hermes-alice-voice.jpg" width="100%" alt="Illustration: a holographic voice assistant and the Hermes agent robot joined by a sound wave"></a>
+<a href="https://github.com/bablobanov/hermes-agent-alice-voice"><img src="assets/hermes-alice-voice.jpg" width="100%" alt="Illustration: a holographic voice assistant and the Hermes agent robot joined by a sound wave"></a>
 
 Voice input for the Hermes agent: a private Yandex Alice skill passes the recognized text of a task to one existing Hermes Telegram chat, and the result arrives in Telegram.
 
@@ -46,7 +46,7 @@ Voice input for the Hermes agent: a private Yandex Alice skill passes the recogn
 
 **What it is.** A plugin inside the Hermes gateway, Python standard library only. It listens on 127.0.0.1 behind an HTTPS proxy you run, takes requests on a secret URL, and passes the text to one Telegram direct-message session fixed in the configuration; a request cannot pick another session, role, model or tools. Alice's reply means the task was scheduled, not that it was done, and Alice does not read the result aloud. Built for one operator and a private skill; Alice's replies are in Russian.
 
-<a href="https://github.com/bablobanov/hermes-alice-voice"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-alice-voice on GitHub"></a> <a href="https://hermes-agent.nousresearch.com/docs/plugins/alice-voice"><img src="https://img.shields.io/badge/Listed%20in-Hermes%20Plugin%20Catalog-0B1A4A?style=for-the-badge" alt="Listed in the Hermes Plugin Catalog"></a>
+<a href="https://github.com/bablobanov/hermes-agent-alice-voice"><img src="https://img.shields.io/badge/Repository-2F7BFF?style=for-the-badge&logo=github&logoColor=white" alt="hermes-agent-alice-voice on GitHub"></a> <a href="https://hermes-agent.nousresearch.com/docs/plugins/alice-voice"><img src="https://img.shields.io/badge/Listed%20in-Hermes%20Plugin%20Catalog-0B1A4A?style=for-the-badge" alt="Listed in the Hermes Plugin Catalog"></a>
 
 - Install: `hermes plugins install alice-voice`, or copy the three files of `plugins/alice-voice/` into the Hermes plugin folder; then set a webhook secret in the Hermes `.env` and the plugin settings in `config.yaml`, point a private Alice skill at your HTTPS proxy and restart the gateway. The repository README has each step.
 
@@ -77,7 +77,7 @@ Test counts as of 9 October 2026.
 
 The interesting part of an agent tool is not that it runs, it is what happens when it does not. Three of the four projects run their checks in GitHub Actions on every push. compact-ready has no code of its own, so it was checked by running it.
 
-**hermes-telegram-checklist**
+**hermes-agent-telegram-checklist**
 
 - the same 150-test suite on Python 3.9, 3.11 and 3.13 with neither network nor Telethon, and on Python 3.12 with the real Telethon installed, where an integration test that skips elsewhere checks the exact MTProto request signatures against the library
 - an allowlist on every command, reads included; the chat check runs offline, before any network call
@@ -95,7 +95,7 @@ The interesting part of an agent tool is not that it runs, it is what happens wh
 - a watchdog outside the plugin checks the message's freshness on a schedule and alerts when the plugin stops editing. It runs in the same gateway, so it covers a dead plugin, not a dead gateway
 - a private channel for vulnerability reports
 
-**hermes-alice-voice**
+**hermes-agent-alice-voice**
 
 - 15 tests on Python 3.11, 3.12 and 3.13, 11 for the bridge and 4 for the controls, with synthetic IDs and no Telegram or Yandex connection
 - an optional test for a real Hermes runtime first checks three engine source files against their recorded SHA-256 and skips on any other tree; CI has no engine, so it skips there, and a skip is not counted as a pass
@@ -124,8 +124,8 @@ Along the way it surfaced three failures that had been silent for weeks: file de
 
 My part is the requirements, the acceptance criteria, the security and quality decisions, the review, and running the result in production. The code and texts of all four projects are written with AI assistance. The histories show it differently:
 
-- hermes-telegram-checklist: six of its nine non-merge commits carry an AI co-author trailer (`Co-Authored-By: Claude`), the latest one among them
-- hermes-agent-telegram-dashboard, hermes-alice-voice and compact-ready: none of their commits carries one. I no longer add AI trailers to my repositories and say it here in words instead; a missing trailer is a choice about commit metadata, not a claim about who wrote the code
-- the public history of the dashboard starts with one commit that holds all the work up to version 0.3.0, and that of hermes-alice-voice starts at version 0.3.0; the work before them is not public
+- hermes-agent-telegram-checklist: six of its nine non-merge commits carry an AI co-author trailer (`Co-Authored-By: Claude`), the latest one among them
+- hermes-agent-telegram-dashboard, hermes-agent-alice-voice and compact-ready: none of their commits carries one. I no longer add AI trailers to my repositories and say it here in words instead; a missing trailer is a choice about commit metadata, not a claim about who wrote the code
+- the public history of the dashboard starts with one commit that holds all the work up to version 0.3.0, and that of hermes-agent-alice-voice starts at version 0.3.0; the work before them is not public
 
 I do not rewrite published history to make a profile look better.
