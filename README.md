@@ -10,9 +10,13 @@ This account holds the part of that work anyone can verify: the tooling, the tes
 
 <a href="https://github.com/bablobanov/compact-ready"><img src="assets/compact-ready.jpg" width="100%" alt="Compact Ready: finish the stage, save the handoff, compact with focus"></a>
 
-One command before `/compact`: it finishes the current stage of your plan, saves a handoff file next to the task and hands you a ready `/compact` line with a focus. The state is saved to a file, not left only to the summary, and the line points the session after compaction to the handoff. It never runs `/compact` itself.
+One command before compaction, in Claude Code, Cowork and the chat on claude.ai: it finishes the current stage of your plan, saves a handoff file next to the task and prints what comes next. In Claude Code that is a ready `/compact` line with a focus, which points the session after compaction to the handoff. In Cowork and in the chat, which have no `/compact`, it says how to continue in a new task or a new chat. The state is saved to a file, not left only to the summary. It never runs `/compact` itself.
 
 <a href="https://github.com/bablobanov/compact-ready/releases/latest"><img src="https://img.shields.io/github/v/release/bablobanov/compact-ready?style=for-the-badge&logo=github&logoColor=white&label=Release&color=0B1A4A" alt="Latest release of compact-ready"></a> <a href="https://claude.ai/customize/plugins/id/1eb4a2b3-703e-435e-8079-1134b644582d%40anthropic-plugin-directory"><img src="https://img.shields.io/badge/Listed%20in-Claude%20Plugin%20Directory-0B1A4A?style=for-the-badge" alt="Listed in the Claude plugin directory"></a>
+
+**Compact Ready Context** ([compact-ready-context](https://github.com/bablobanov/compact-ready-context)) is its add-on, made above all for Cowork, which has no `/compact` of its own. Send `context-compact` as a whole message and the session compacts with the handoff's focus. `context-left` shows the context figures as the engine measures them, and `/compact-ready` gets the same figures, in Claude Code as in Cowork. compact-ready works in full without it. The add-on is a separate plugin with one small hooks module: it reads no files, uses no network and never sends a message as you.
+
+<a href="https://github.com/bablobanov/compact-ready-context/releases/latest"><img src="https://img.shields.io/github/v/release/bablobanov/compact-ready-context?style=for-the-badge&logo=github&logoColor=white&label=Release&color=0B1A4A" alt="Latest release of compact-ready-context"></a>
 
 ---
 
@@ -56,16 +60,31 @@ Your AI agent posts real interactive Telegram To-Do lists into chats and forum t
 
 ## How the work is checked
 
-Test counts as of 9 October 2026, for hermes-agent-gemini-voice as of 15 October 2026.
+Test counts as of 9 October 2026, for hermes-agent-gemini-voice as of 15 October 2026, for Compact Ready Context as of 7 November 2026.
 
-The interesting part of an agent tool is not that it runs, it is what happens when it does not. Four of the five projects run their checks in GitHub Actions on every push. compact-ready has no code of its own, so it was checked by running it.
+The interesting part of an agent tool is not that it runs, it is what happens when it does not. Four of the six projects run their checks in GitHub Actions on every push. compact-ready has no code of its own, so it was checked by running it. Compact Ready Context is tested against the engine itself with the plugin test kit of Claude Code, outside GitHub Actions.
 
 <details>
 <summary><b>compact-ready</b></summary>
 
-- installed as a plugin and run in headless Claude Code sessions on Sonnet and Opus, in test projects separate from my own work
-- nine scenarios, among them a call in the middle of a stage, an empty session, two task folders with the work tied to neither, continuing after `/compact` with the printed line, and a direct request to Claude to run it by itself, which Claude Code refused
+- installed as a plugin and run in headless Claude Code sessions on Sonnet and Opus, in a Cowork task and in a chat on claude.ai, in test projects separate from my own work
+- the scenarios its README lists, among them a call in the middle of a stage, an empty session, two task folders with the work tied to neither, continuing after `/compact` with the printed line, a Cowork task with a connected folder and without one, a chat that continues from the handoff in a new chat, and a direct request to Claude to run it by itself, which Claude Code refused
+- the README names the surfaces and versions it was tested in, and says that other versions were not
 - a separate AI reviewer read the text, and an independent check went over the run logs
+- a documented security policy and a private channel for vulnerability reports
+
+</details>
+
+<details>
+<summary><b>Compact Ready Context</b></summary>
+
+- 95 tests run against the engine itself through the plugin test kit of Claude Code 2.1.318: the two words as whole messages and inside a sentence, and the hint bands at three quarters and nine tenths of the auto-compaction point
+- the focus is taken only from the turn that ran `/compact-ready`, checked with decoy blocks and odd characters; also tested: a session resumed after a compaction request that never happened, and the engine restarted after a compaction in Cowork
+- mutation runs before release: every change tried in the block parser and the note texts was caught by a named test
+- reviewed by a second AI model in three rounds and by independent verification passes before release; each finding was answered in the code, the tests or the README
+- run live in headless and interactive Claude Code sessions with both plugins loaded, and in a Cowork task
+- the README says what the engine's counter cannot tell in Cowork: a compaction that frees little can go unnoticed, and a compaction request older than two minutes is dropped when the engine restarts
+- it reads no files, writes no files of its own, uses no network and never sends a message as you; what it keeps is a small record per session in the plugin's own store, a file Claude Code holds, described in PRIVACY.md
 - a documented security policy and a private channel for vulnerability reports
 
 </details>
@@ -119,7 +138,7 @@ The interesting part of an agent tool is not that it runs, it is what happens wh
 
 </details>
 
-The design rule I care about most is the same in all five: the output says what actually happened, not what was intended. Alice says a task was accepted, not that it was done. A voice task that gets no reply in time is marked as not finished in its own Google object. A pinned dashboard with a dead updater looks exactly like a calm system, and that is the failure it exists to prevent.
+The design rule I care about most is the same in all six: the output says what actually happened, not what was intended. Alice says a task was accepted, not that it was done. A voice task that gets no reply in time is marked as not finished in its own Google object. Compact Ready Context reports a compaction as requested, and as done only when the engine's own counter shows it. A pinned dashboard with a dead updater looks exactly like a calm system, and that is the failure it exists to prevent.
 
 ## Running agents in production
 
@@ -129,10 +148,10 @@ It surfaced three failures that had been silent for weeks, and none of them repo
 
 ## Attribution
 
-My part is the requirements, the acceptance criteria, the security and quality decisions, the review, and running the result in production. The code and texts of all five projects are written with AI assistance, and the histories show it differently:
+My part is the requirements, the acceptance criteria, the security and quality decisions, the review, and running the result in production. The code and texts of all six projects are written with AI assistance, and the histories show it differently:
 
 - hermes-agent-telegram-checklist: six of its thirteen non-merge commits carry an AI co-author trailer (`Co-Authored-By: Claude`), the last of them on 25 September 2026
-- compact-ready, hermes-agent-gemini-voice, hermes-agent-telegram-dashboard and hermes-agent-alice-voice: none of their commits carries one. I no longer add AI trailers to these repositories and say it here in words instead; a missing trailer is a choice about commit metadata, not a claim about who wrote the code
+- compact-ready, compact-ready-context, hermes-agent-gemini-voice, hermes-agent-telegram-dashboard and hermes-agent-alice-voice: none of their commits carries one. I no longer add AI trailers to these repositories and say it here in words instead; a missing trailer is a choice about commit metadata, not a claim about who wrote the code
 - the public history of the dashboard starts with one commit that holds all the work up to version 0.3.0, and that of hermes-agent-alice-voice starts at version 0.3.0; the work before them is not public
 
 I do not rewrite published history to make a profile look better.
