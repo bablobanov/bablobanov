@@ -1,4 +1,4 @@
-<a href="https://x.com/bablobanov"><img src="assets/header.svg" width="100%" alt="Ilya Balobanov. Digital systems architect. AI agents in real business."></a>
+<a href="https://x.com/bablobanov"><img src="assets/header-v2.svg" width="100%" alt="Ilya Balobanov. Digital systems architect. AI agents in real business."></a>
 
 <a href="https://bablobanov.com"><img src="https://img.shields.io/badge/bablobanov.com-0B1A4A?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website bablobanov.com"></a> <a href="https://x.com/bablobanov"><img src="https://img.shields.io/badge/X-@bablobanov-000000?style=for-the-badge&logo=x&logoColor=white" alt="X @bablobanov"></a> <a href="https://bsky.app/profile/bablobanov.com"><img src="https://img.shields.io/badge/Bluesky-@bablobanov.com-1185FE?style=for-the-badge&logo=bluesky&logoColor=white" alt="Bluesky @bablobanov.com"></a> <a href="https://www.threads.com/@bablobanov_com"><img src="https://img.shields.io/badge/Threads-@bablobanov__com-000000?style=for-the-badge&logo=threads&logoColor=white" alt="Threads @bablobanov_com"></a> <a href="https://huggingface.co/bablobanov"><img src="https://img.shields.io/badge/Hugging%20Face-bablobanov-0B1A4A?style=for-the-badge&logo=huggingface&logoColor=white" alt="Hugging Face bablobanov"></a>
 
@@ -81,7 +81,7 @@ The interesting part of an agent tool is not that it runs, it is what happens wh
 - 95 tests run against the engine itself through the plugin test kit of Claude Code 2.1.318: the two words as whole messages and inside a sentence, and the hint bands at three quarters and nine tenths of the auto-compaction point
 - the focus is taken only from the turn that ran `/compact-ready`, checked with decoy blocks and odd characters; also tested: a session resumed after a compaction request that never happened, and the engine restarted after a compaction in Cowork
 - mutation runs before release: every change tried in the block parser and the note texts was caught by a named test
-- reviewed by a second AI model in three rounds and by independent verification passes before release; each finding was answered in the code, the tests or the README
+- reviewed by a second AI model in two rounds on the code, after three rounds on the design, and by independent verification passes before release; each finding was answered in the code, the tests or the README, or declined with the reason written down
 - run live in headless and interactive Claude Code sessions with both plugins loaded, and in a Cowork task
 - the README says what the engine's counter cannot tell in Cowork: a compaction that frees little can go unnoticed, and a compaction request older than two minutes is dropped when the engine restarts
 - it reads no files, writes no files of its own, uses no network and never sends a message as you; what it keeps is a small record per session in the plugin's own store, a file Claude Code holds, described in PRIVACY.md
